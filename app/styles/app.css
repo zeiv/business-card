@@ -1,0 +1,87 @@
+body {
+  background-color: hsl(37, 9%, 42%);
+  background-image: url('/coffee-on-table.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+main {
+  background-color: hsl(0, 0%, 90%);
+  width: 700px;
+  height: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  -webkit-box-shadow: 0 0 6px black;
+  -moz-box-shadow: 0 0 6px black;
+  box-shadow: 0 0 6px black;
+
+  padding: 4rem;
+  padding-top: 5rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  font-family: sans-serif;
+  font: Helvetica, Arial;
+  color: hsl(0, 0%, 28%);
+}
+
+div.your-logo-here {
+  padding: 1rem;
+  float: right;
+  text-align: center;
+  color: hsl(0, 0%, 45%);
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.2rem dashed hsl(0, 0%, 80%);
+  width: 12rem;
+  height: 12rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div.your-logo-here h3 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+div.your-logo-here small {
+  font-weight: 200;
+}
+
+address {
+  font-style: normal;
+  padding-bottom: 1rem;
+  color: hsla(0, 0%, 20%, 0.8);
+}
+
+address h1, address h2, address h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+
+/*   -webkit-background-clip: text;
+-moz-background-clip: text;
+background-clip: text; */
+  text-shadow: hsla(0,0,90,0.8) 0px 5px 5px;
+}
+
+address h3 {
+  padding-bottom: 0.3rem;
+}
