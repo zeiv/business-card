@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/tmp/funnel-input_base_path-6y7PPGLk.tmp/0/bower_components/ember-cli-test-loader/test-loader.js

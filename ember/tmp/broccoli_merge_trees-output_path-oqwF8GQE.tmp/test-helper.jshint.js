@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/ember/tmp/broccoli_merge_trees-input_base_path-hvl3Rklj.tmp/0/test-helper.jshint.js

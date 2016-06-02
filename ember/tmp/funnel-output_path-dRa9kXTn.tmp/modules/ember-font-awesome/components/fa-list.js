@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/tmp/funnel-input_base_path-WptCNCg2.tmp/0/components/fa-list.js

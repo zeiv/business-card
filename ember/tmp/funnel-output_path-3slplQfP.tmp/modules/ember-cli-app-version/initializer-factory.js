@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/ember/tmp/funnel-input_base_path-5qmUxd1V.tmp/0/initializer-factory.js

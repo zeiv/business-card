@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/tmp/creator-output_path-fNm5Fi68.tmp/version.js

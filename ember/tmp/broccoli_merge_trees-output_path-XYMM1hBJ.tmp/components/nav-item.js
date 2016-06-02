@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/ember/app/components/nav-item.js

@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/tmp/funnel-input_base_path-KhiX9UWT.tmp/0/components/app-version.js

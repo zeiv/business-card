@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/ember/tmp/funnel-input_base_path-ObDf3fj8.tmp/0/index.js

@@ -1,1 +1,0 @@
-/Users/Xavier/Development/card/ember/tmp/creator-output_path-kAOnBpsS.tmp/version.js
