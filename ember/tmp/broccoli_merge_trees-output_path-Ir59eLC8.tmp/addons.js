@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/tmp/broccoli_merge_trees-input_base_path-KrX7zwwn.tmp/1/addons.js

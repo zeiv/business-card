@@ -10,7 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.1",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
+    "multer": "^1.1.0",
     "sendgrid": "^2.0.0"
   }
 }

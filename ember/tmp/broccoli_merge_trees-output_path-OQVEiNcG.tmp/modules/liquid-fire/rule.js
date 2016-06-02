@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/tmp/broccoli_merge_trees-input_base_path-pC1yuwCj.tmp/0/modules/liquid-fire/rule.js

@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/tmp/funnel-input_base_path-CQ4ZhwtR.tmp/0/mixins/ajax-request.js

@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/tmp/funnel-input_base_path-ObDf3fj8.tmp/0/utils/class-factory.js

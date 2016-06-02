@@ -3,10 +3,14 @@
 # compiled output
 /dist
 /tmp
+/ember/dist
+/ember/tmp
 
 # dependencies
 /node_modules
 /bower_components
+/ember/node_modules
+/ember/bower_components
 
 # misc
 /.sass-cache
@@ -15,3 +19,9 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+/ember/.sass-cache
+/ember/connect.lock
+/ember/coverage/*
+/ember/libpeerconnection.log
+ember/npm-debug.log
+ember/testem.log

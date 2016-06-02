@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/app/components/email-address.js

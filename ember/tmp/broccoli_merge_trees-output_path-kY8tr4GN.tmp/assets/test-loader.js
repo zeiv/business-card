@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/bower_components/ember-cli-test-loader/test-loader.js

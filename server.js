@@ -1,13 +1,18 @@
 var express     = require('express'),
     app         = express(),
+    cors        = require('cors'),
     bodyParser  = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
 var router = express.Router();
+
+var corsOptions = {
+  origin: 'http://localhost:4200'
+};
 
 console.log("Sendgrid API Key: " + process.env.SENDGRID_API_KEY);
 var sendgrid = require('sendgrid')(process.env.SENDGRID_API_KEY);
@@ -19,11 +24,8 @@ router.get('/', function(request, response) {
 
 app.use('/api/v1/', router);
 
-app.listen(port);
-console.log("Express server running on port " + port);
-
-router.route('/send-message')
-.post(function(request, response) {
+router.post('/send-message', cors(corsOptions), function(request, response, next) {
+  console.log(request);
 
   var email = new sendgrid.Email({
     to: 'fbick@udallas.edu',
@@ -33,6 +35,7 @@ router.route('/send-message')
     subject: 'Message from ' + request.body.fromName + ' via Business Card',
     text: request.body.message
   });
+  console.log(email);
 
   var error = false;
   sendgrid.send(email, function(err, json) {
@@ -40,9 +43,9 @@ router.route('/send-message')
     console.log(json);
   });
 
-  // if (email.text === '' || email.from === '') {
-  //   error = "Missing parameters";
-  // }
+  if (email.text === '' || email.from === '' || email.fromname === '') {
+    error = "Missing parameters";
+  }
 
   if (error !== false) {
     console.error(error);
@@ -54,3 +57,6 @@ router.route('/send-message')
   }
 
 });
+
+app.listen(port);
+console.log("Express server running on port " + port);

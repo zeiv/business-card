@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/ember/tmp/funnel-input_base_path-hJ4qSmnG.tmp/0//tests-suffix.js

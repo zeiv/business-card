@@ -1,0 +1,1 @@
+/Users/Xavier/Development/card/tmp/funnel-input_base_path-xG2nd3B6.tmp/0/container-debug-adapter.js
