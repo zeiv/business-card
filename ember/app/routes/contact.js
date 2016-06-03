@@ -5,11 +5,12 @@ export default Ember.Route.extend({
   actions: {
     sendMessage(fromAddress, fromName, message) {
       return this.get('ajax').post('/send-message', {
-        data: {
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
           fromAddress: fromAddress,
           fromName: fromName,
           message: message
-        }
+        })
       });
     }
   }

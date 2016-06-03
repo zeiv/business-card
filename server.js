@@ -3,8 +3,9 @@ var express     = require('express'),
     cors        = require('cors'),
     bodyParser  = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 8080;
 
@@ -14,15 +15,17 @@ var corsOptions = {
   origin: 'http://localhost:4200'
 };
 
+app.options('*', cors());
+
 console.log("Sendgrid API Key: " + process.env.SENDGRID_API_KEY);
 var sendgrid = require('sendgrid')(process.env.SENDGRID_API_KEY);
 console.log(sendgrid);
 
+app.use('/api/v1/', router);
+
 router.get('/', function(request, response) {
   response.json({ message: "Success" });
 });
-
-app.use('/api/v1/', router);
 
 router.post('/send-message', cors(corsOptions), function(request, response, next) {
   console.log(request);
