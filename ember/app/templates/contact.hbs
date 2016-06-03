@@ -1,6 +1,6 @@
 {{home-button}}
-<form {{action 'sendMessage' fromAddress fromName message on='submit'}}>
-  {{textarea type='text' value=message placeholder="Message"}}
+<form {{action 'sendMessage' fromAddress fromName message on='submit'}} class="contact-form">
+  {{textarea type='text' value=message placeholder="Message" cols=45 rows=10}}
   {{input type="email" value=fromAddress placeholder="Your Email"}}
   {{input value=fromName placeholder="Your Name"}}
   <button>Send Message</button>
