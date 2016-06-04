@@ -34,7 +34,7 @@ main {
   box-sizing: border-box;*/
 
   font-family: sans-serif;
-  font: Helvetica, Arial;
+  font-family: "Helvetica Neue", Helvetica, "Calibri Light", "Calibri", "Arial Light", Arial, sans-serif;
   color: hsl(0, 0%, 28%);
 }
 

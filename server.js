@@ -12,6 +12,8 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
+app.use(express.static(__dirname + '/public'));
+
 var corsOptions = {
   origin: 'http://localhost:4200'
 };
