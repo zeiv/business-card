@@ -1,6 +1,7 @@
 var express     = require('express'),
     app         = express(),
     cors        = require('cors'),
+    request     = require('request'),
     bodyParser  = require('body-parser');
 
 
@@ -21,44 +22,70 @@ console.log("Sendgrid API Key: " + process.env.SENDGRID_API_KEY);
 var sendgrid = require('sendgrid')(process.env.SENDGRID_API_KEY);
 console.log(sendgrid);
 
+var recaptchaSecret = process.env.RECAPTCHA_SECRET;
+var recaptchaUrl = "https://www.google.com/recaptcha/api/siteverify";
+
+function verifyRecaptcha(url, secret, token) {
+  return new Promise(function(resolve, reject) {
+    var responseBody;
+    request.post({url: url, form: {secret: secret, response: token}}, function(error, res, body) {
+      console.log(body);
+      responseBody = body;
+      var parsedResponse = JSON.parse(responseBody);
+      console.log("Google Response Body: " + JSON.stringify(parsedResponse));
+      if(parsedResponse.success) {
+        resolve("Success");
+      }
+      else {
+        reject(Error("reCAPTCHA Verification Failed: " + parsedResponse.errorCodes));
+      }
+    });
+  });
+}
+
 app.use('/api/v1/', router);
 
-router.get('/', function(request, response) {
-  response.json({ message: "Success" });
+router.get('/', function(req, res) {
+  res.json({ message: "Success" });
 });
 
-router.post('/send-message', cors(corsOptions), function(request, response, next) {
-  console.log(request);
+router.post('/send-message', cors(corsOptions), function(req, res, next) {
+  console.log(req);
 
-  var email = new sendgrid.Email({
-    to: 'fbick@udallas.edu',
-    from: request.body.fromAddress,
-    replyto: request.body.fromAddress,
-    fromname: request.body.fromName,
-    subject: 'Message from ' + request.body.fromName + ' via Business Card',
-    text: request.body.message
-  });
-  console.log(email);
+  verifyRecaptcha(recaptchaUrl, recaptchaSecret, req.body.grecaptchaToken).then(function(promiseResult) {
+    var error = false;
 
-  var error = false;
-  sendgrid.send(email, function(err, json) {
-    if (err) { error = err; }
-    console.log(json);
-  });
-
-  if (email.text === '' || email.from === '' || email.fromname === '') {
-    error = "Missing parameters";
-  }
-
-  if (error !== false) {
-    console.error(error);
-    response.status(500).json({ error: error });
-  }
-  else {
+    var email = new sendgrid.Email({
+      to: 'fbick@udallas.edu',
+      from: req.body.fromAddress,
+      replyto: req.body.fromAddress,
+      fromname: req.body.fromName,
+      subject: 'Message from ' + req.body.fromName + ' via Business Card',
+      text: req.body.message
+    });
     console.log(email);
-    response.status(200).json({ message: "Email sent" });
-  }
 
+    sendgrid.send(email, function(err, json) {
+      if (err) { error = err; }
+      console.log(json);
+    });
+
+    if (error !== false) {
+      console.error(error);
+      res.status(400).json({ error: error });
+    }
+
+    if (email.text === '' || email.from === '' || email.fromname === '') {
+      error = "Missing parameters";
+    }
+    else {
+      console.log(email);
+      res.status(202).json({ message: "Email sent" });
+    }
+  }, function(promiseError) {
+    console.error(promiseError);
+    res.status(400).json({ message: "An error occurred: " + promiseError});
+  });
 });
 
 app.listen(port);

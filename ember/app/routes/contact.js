@@ -9,7 +9,8 @@ export default Ember.Route.extend({
         data: JSON.stringify({
           fromAddress: fromAddress,
           fromName: fromName,
-          message: message
+          message: message,
+          grecaptchaToken:  grecaptcha.getResponse()
         })
       });
     }
