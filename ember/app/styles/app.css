@@ -214,3 +214,18 @@ address h3 {
   transform-origin:0;
   filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.85,M12=0,M21=0,M22=0.85,SizingMethod='auto expand');
 }
+
+div.alert {
+  position: absolute;
+  top: 1rem;
+  left: 4rem;
+  padding: 0.5rem;
+  box-sizing: border-radius;
+  border: 1px solid hsl(9, 80%, 35%);
+  color: hsl(9, 80%, 35%);
+  transition: opacity 500ms;
+}
+
+div.alert.exiting {
+  opacity: 0;
+}

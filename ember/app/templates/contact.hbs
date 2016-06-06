@@ -1,4 +1,7 @@
 {{home-button}}
+{{#each flashMessages.queue as |flash|}}
+  {{flash-message flash=flash}}
+{{/each}}
 <form {{action 'sendMessage' fromAddress fromName message on='submit'}} class="contact-form">
   {{textarea type='text' value=message placeholder="Message" cols=45 rows=10}}
   <div class='right'>

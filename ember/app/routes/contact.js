@@ -3,9 +3,11 @@ import Ladda from "npm:ladda";
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
+  flashMessages: Ember.inject.service(),
   actions: {
     sendMessage(fromAddress, fromName, message) {
       var laddaButton = Ladda.create( document.querySelector( '.ladda-button' ) );
+      const flashMessages = this.get('flashMessages');
       laddaButton.start();
       Ember.$(':input').prop('disabled', true);
       const ajax = this.get('ajax');
@@ -18,11 +20,15 @@ export default Ember.Route.extend({
           grecaptchaToken: grecaptcha.getResponse(window.grecaptchaWidgetId)
         })
       }).then(function(response) {
-        console.log(response);
         this.transitionTo('contact/success');
       }).catch(function(error) {
-        console.error(error);
+        Ember.Logger.debug(error);
+        grecaptcha.reset(window.grecaptchaWidgetId);
         laddaButton.stop();
+        flashMessages.alert('Error: ' + error.message, {
+          timeout: 5000,
+          extendedTimeout: 500
+        });
         Ember.$(':input').prop('disabled', false);
       });
     }
