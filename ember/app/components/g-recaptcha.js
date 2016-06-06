@@ -15,6 +15,7 @@ export default Ember.Component.extend({
       this.set('grecaptchaId', widgetId);
       console.log('Setting model.grecaptchaId to ' + widgetId);
       console.log(this.get('grecaptchaId'));
+      window.grecaptchaWidgetId = widgetId;
     }
   },
 
