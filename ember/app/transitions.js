@@ -6,12 +6,12 @@ export default function() {
   );
   this.transition(
     this.fromRoute('contact'),
-    this.toRoute('contact/success'),
-    this.use('fade')
+    this.toRoute('success'),
+    this.use('fadeChild')
   );
   this.transition(
-    this.fromRoute('contact/success'),
+    this.fromRoute('success'),
     this.toRoute('index'),
-    this.use('wait', 1500, {then: 'cardFlip', opts: {duration: 300, direction: 'left'}} )
+    this.use('cardFlip', { duration: 500, direction: 'left' } )
   );
 }
