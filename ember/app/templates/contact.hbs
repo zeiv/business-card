@@ -4,7 +4,7 @@
   <div class='right'>
     {{input type="email" value=fromAddress placeholder="Your Email"}}
     {{input value=fromName placeholder="Your Name"}}
-    {{g-recaptcha sitekey="6Lc7ryETAAAAAIczuHfglZlOJnhKQuEateWfiHSf"}}
-    <button>Send Message</button>
+    {{g-recaptcha sitekey="6Lc7ryETAAAAAIczuHfglZlOJnhKQuEateWfiHSf" grecaptchaId=model.grecaptchaId}}
+    <button class="ladda-button" data-style="slide-right"><span class="ladda-label">Send Message</span></button>
   </div>
 </form>

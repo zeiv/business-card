@@ -5,7 +5,22 @@ export default Ember.Component.extend({
     Ember.run.scheduleOnce('afterRender', this, 'googleRecaptcha');
   },
 
+  willDestroyElement() {
+    Ember.run.scheduleOnce('destroy', this, 'resetRecaptcha');
+  },
+
   googleRecaptcha: function() {
-    grecaptcha.render(this.$('div.g-recaptcha')[0], {sitekey: this.get('sitekey')});
+    if ($('iframe').length === 0) {
+      let widgetId = grecaptcha.render(this.$('div.g-recaptcha')[0], {sitekey: this.get('sitekey')});
+      this.set('grecaptchaId', widgetId);
+      console.log('Setting model.grecaptchaId to ' + widgetId);
+      console.log(this.get('grecaptchaId'));
+    }
+  },
+
+  resetRecaptcha: function() {
+    console.log('Resetting reCaptcha');
+    console.log(this.get('grecaptchaId'));
+    grecaptcha.reset(this.get('grecaptchaId'));
   }
 });

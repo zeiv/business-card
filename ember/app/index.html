@@ -11,9 +11,10 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/card.css">
+    <link rel="stylesheet" href="assets/ladda.css">
 
     {{content-for "head-footer"}}
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
   </head>
   <body>
     {{content-for "body"}}
