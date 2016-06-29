@@ -17,9 +17,12 @@ h1, h2, h3, h4, h5 {
 main {
   width: 700px;
   height: 400px;
-  position: fixed;
-  top: 25%;
-  left: 25%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   overflow: visible;
 
   /*-webkit-transform: translate(-50%, -50%);
