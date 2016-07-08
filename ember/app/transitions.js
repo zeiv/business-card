@@ -1,9 +1,17 @@
 export default function() {
-  this.transition(
-    this.fromRoute('index'),
-    this.use('cardFlip', { duration: 300, direction: 'right' } ),
-    this.reverse('cardFlip', { duration: 300, direction: 'left' } )
-  );
+  if($(window).width() >= 600) {
+    this.transition(
+      this.fromRoute('index'),
+      this.use('cardFlip', { duration: 300, direction: 'right' } ),
+      this.reverse('cardFlip', { duration: 300, direction: 'left' } )
+    );
+  } else {
+    this.transition(
+      this.fromRoute('index'),
+      this.use('fade', { duration: 100 }),
+      this.reverse('fade', { duration: 100 })
+    );
+  }
   this.transition(
     this.fromRoute('contact'),
     this.toRoute('success'),

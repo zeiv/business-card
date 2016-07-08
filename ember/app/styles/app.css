@@ -1,3 +1,7 @@
+html {
+  font-size: 1em;
+}
+
 body {
   background-color: hsl(37, 9%, 42%);
   background-image: url('/coffee-on-table.jpg');
@@ -8,37 +12,41 @@ body {
   margin: 0;
   /*perspective: 800px;
   perspective-origin: 50% 50%;*/
+
+  font-family: sans-serif;
+  font-family: "museo-sans", "Avenir", "Helvetica Neue", Helvetica, "Calibri Light", "Calibri", "Arial Light", Arial, sans-serif;
+  color: hsl(0, 0%, 28%);
 }
 
 h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
-main {
-  width: 700px;
-  height: 400px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  overflow: visible;
+/* Desktop and Tablet */
+/* Styles for Mobile at end of Document */
+@media (min-width: 600px) {
+  main {
+    width: 700px;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: visible;
 
-  /*-webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);*/
+    /*-webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 
-  /*padding: 4rem;
-  padding-top: 5rem;*/
-  /*-webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;*/
-
-  font-family: sans-serif;
-  font-family: "Helvetica Neue", Helvetica, "Calibri Light", "Calibri", "Arial Light", Arial, sans-serif;
-  color: hsl(0, 0%, 28%);
+    /*padding: 4rem;
+    padding-top: 5rem;*/
+    /*-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;*/
+  }
 }
 
 a, a * {
@@ -110,8 +118,6 @@ address h1, address h2, address h3 {
   margin: 0;
   padding: 0;
   font-weight: 200;
-
-  text-shadow: 0px -1px 1px hsl(0, 0%, 60%), 0 1px 1px white;
 }
 
 address h1 {
@@ -122,6 +128,14 @@ address h3 {
   padding-bottom: 0.3rem;
 }
 
+address .telephone a {
+  text-decoration: none;
+}
+
+address, address h1, address h2, address h3, nav ul.home-nav li, ul.portfolio-list li, ul.profile-list li, ul.open-source-list li, .home-button {
+  text-shadow: 0px -1px 1px hsl(0, 0%, 65%), 0 1px 1px white;
+}
+
 nav ul.home-nav {
   list-style: none;
   padding: 0;
@@ -130,6 +144,11 @@ nav ul.home-nav {
 
 nav ul.home-nav a {
   text-decoration: none;
+  color: hsl(0, 0%, 35%);
+}
+
+ul.portfolio-list li a, ul.profile-list li a, ul.open-source-list li a {
+  color: hsl(0, 0%, 35%);
 }
 
 nav ul.home-nav a:hover {
@@ -217,10 +236,14 @@ nav ul.home-nav li {
   position: absolute;
   bottom: 0;
 
-  -webkit-transition: background-color 300ms, color 300ms;
-  -moz-transition: background-color 300ms, color 300ms;
-  -o-transition: background-color 300ms, color 300ms;
-  transition: background-color 300ms, color 300ms;
+  -webkit-transition: background-color 300ms;
+  -webkit-transition: color 300ms;
+  -moz-transition: background-color 300ms;
+  -moz-transition: color 300ms;
+  -o-transition: background-color 300ms;
+  -o-transition: color 300ms;
+  transition: background-color 300ms;
+  transition: color 300ms;
 }
 
 .contact-form button:hover {
@@ -332,4 +355,77 @@ ul.open-source-list li a:before {
   text-decoration: none !important;
   color: hsl(0, 0%, 75%);
   margin-right: 0.8em;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  html {
+    font-size: 0.78em;
+  }
+
+  main {
+    width: 96%;
+    height: 96%;
+    position: absolute;
+    margin: 2%;
+    overflow: visible;
+  }
+
+  .liquid-child {
+    padding: 2.5em;
+    padding-top: 3em;
+  }
+
+  div.your-logo-here {
+    display: none;
+  }
+
+  .ember-view.liquid-container {
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+    perspective: 0px;
+  }
+
+  address .telephone a {
+    text-decoration: underline;
+  }
+
+  nav ul.home-nav div.ember-view {
+    display: block;
+    margin-bottom: 1.5em;
+    padding: 0.5em;
+    border: 1px solid hsl(0, 0%, 75%);
+    border-radius: 3px;
+    background-color: hsl(0, 0%, 93%);
+  }
+
+  nav ul.home-nav li {
+    display: block;
+  }
+
+  .contact-form, .contact-form * {
+    float: none;
+  }
+
+  .contact-form .right {
+    float: none;
+    width: 100%;
+    height: 50%;
+  }
+
+  .contact-form textarea {
+    float: none;
+    margin: 0;
+    margin-bottom: 2em;
+    width: 100%;
+    height: 40%;
+
+    background-image: -moz-linear-gradient(top , transparent, transparent 1.52em,black 0px);
+    background-image: -webkit-linear-gradient(top , transparent, transparent 1.52em,black 0px);
+
+    -webkit-background-size:  100% 1.7em;
+    background-size: 100% 1.7em;
+    overflow-y: auto;
+  }
 }
