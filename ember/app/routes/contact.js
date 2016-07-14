@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   flashMessages: Ember.inject.service(),
   actions: {
     sendMessage(fromAddress, fromName, message) {
+      ga('send', 'event', 'Message', 'submitted');
       var laddaButton = Ladda.create( document.querySelector( '.ladda-button' ) );
       var self = this;
       const flashMessages = this.get('flashMessages');
@@ -21,9 +22,11 @@ export default Ember.Route.extend({
           grecaptchaToken: grecaptcha.getResponse(window.grecaptchaWidgetId)
         })
       }).then(function(response) {
+        ga('send', 'event', 'Message', 'sent');
         laddaButton.stop();
         self.transitionTo('success');
       }).catch(function(error) {
+        ga('send', 'event', 'Message', 'error');
         Ember.Logger.debug(error);
         grecaptcha.reset(window.grecaptchaWidgetId);
         laddaButton.stop();
