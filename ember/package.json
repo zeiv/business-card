@@ -38,6 +38,7 @@
     "ember-data": "^2.5.0",
     "ember-export-application-global": "^1.0.5",
     "ember-font-awesome": "2.1.1",
+    "ember-fork-me": "1.0.1",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "glob": "^4.5.3",
