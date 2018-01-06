@@ -7,7 +7,7 @@
     "start": "node server.js",
     "build": "(cd ember && ember build -prod)",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install && (cd ember && ember build -prod)"
+    "postinstall": "(cd ember && npm install && bower install && ember build -prod)"
   },
   "author": "Xavier Bick",
   "license": "MIT",
