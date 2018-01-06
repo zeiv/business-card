@@ -18,7 +18,7 @@
   },
   "author": "Xavier Bick",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "2.4.1",
     "ember-browserify": "^1.1.9",
@@ -46,9 +46,7 @@
     "ladda": "1.0.0",
     "liquid-fire": "0.23.1",
     "loader.js": "^4.0.1",
-    "morgan": "^1.7.0"
-  },
-  "dependencies": {
+    "morgan": "^1.7.0",
     "ladda": "^1.0.0"
   }
 }
