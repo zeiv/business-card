@@ -6,6 +6,8 @@
 /ember/dist
 /ember/tmp
 
+**/package-lock.json
+
 # dependencies
 /node_modules
 /bower_components

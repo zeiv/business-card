@@ -5,8 +5,6 @@ var express     = require('express'),
     bodyParser  = require('body-parser');
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 var port = process.env.PORT || 8080;
 
@@ -45,11 +43,10 @@ function verifyRecaptcha(url, secret, token) {
   });
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/', router);
-
-router.get('/', function(req, res) {
-  res.json({ message: "Success" });
-});
+app.use(express.static(__dirname + '/ember/dist'));
 
 router.post('/send-message', cors(corsOptions), function(req, res, next) {
   console.log(req);
@@ -89,6 +86,7 @@ router.post('/send-message', cors(corsOptions), function(req, res, next) {
     res.status(400).json({ message: "An error occurred: " + promiseError});
   });
 });
+
 
 app.listen(port);
 console.log("Express server running on port " + port);
